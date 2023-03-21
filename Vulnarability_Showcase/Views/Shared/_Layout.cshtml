@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link href="~/css/header.css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<header>
+    <div class="top-page">
+        <h2 class="page-heading" style="text-align: center;">
+            Medical Portfolio
+        </h2>
+        <div class="Navigation">
+            <button onClick="javascript:window.location.href='/Home'">
+                Home
+            </button>
+            @if (this.Context.Request.Cookies["username"] == null)
+            {
+                <button onClick="javascript:window.location.href='/Login'">
+                    Login
+                </button>
+                <button onClick="javascript:window.location.href='/Register'">
+                    Register
+                </button>
+            }
+            else
+            {
+                <button onClick=" document.cookie ='username=; expires=Thu, 01 Jan 1970 00:00:00 GMT'; window.location.reload()"
+                    }>
+                    Logout
+                </button>
+            }
+        </div>
+    </div>
+
+</header>
+<body>
+    @this.RenderBody()
+     @await this.RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,16 @@
+﻿@using Vulnarability_Showcase.ViewModels
+@model HomeViewModel
+
+@if (Model.IsLoggedIn)
+{
+    <h1>Hello mr/miss @Model.FirstName @Model.LastName</h1>
+    <h2>
+        Please download your medical profile from here:
+        <a href="~/medicalRecords/@Model.FileName" download>Download</a>
+    </h2>
+}
+else
+{
+    <h1>Try logging in or refreshing the page</h1>
+}
+
